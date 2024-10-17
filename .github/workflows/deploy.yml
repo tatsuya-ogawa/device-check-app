@@ -8,6 +8,14 @@ on:
       - '.github/workflows/**'
       - 'src/**'
       - 'package-lock.json'
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build
@@ -38,10 +46,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@main
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-permissions:
-  contents: read
-  pages: write
-  id-token: write
