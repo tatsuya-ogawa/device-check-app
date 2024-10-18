@@ -36,6 +36,10 @@ function App() {
         <div>ontouchstart : </div>
         <div>{onTouchStart ? 'true' : 'false'}</div>
       </div>
+      <div>
+        <div>orientation : </div>
+        <div>{orientation ? 'true' : 'false'}</div>
+      </div>
     </div>
   );
 }
