@@ -9,8 +9,13 @@ function App() {
   const [maxTouchPoints, ] = React.useState(navigator.maxTouchPoints);
   const [onTouchStart, ] = React.useState('ontouchstart' in window);
   const [orientation, ] = React.useState('orientation' in window);
+  const [userAgent, ] = React.useState(navigator.userAgent);
   return (
     <div className="App">
+      <div>
+        <div>userAgent : </div>
+        <div>{userAgent}</div>
+      </div>
       <div>
         <div>(any-hover:hover) : </div>
         <div>{anyHover.matches ? 'true' : 'false'}</div>
