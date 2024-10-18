@@ -3,22 +3,39 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [anyHover, ] = React.useState(window.matchMedia('(any-hover:hover)'));
+  const [hover, ] = React.useState(window.matchMedia('(hover:hover)'));
+  const [pointer, ] = React.useState(window.matchMedia('(pointer:coarse)'));
+  const [pointerFine, ] = React.useState(window.matchMedia('(pointer:fine)'));
+  const [maxTouchPoints, ] = React.useState(navigator.maxTouchPoints);
+  const [onTouchStart, ] = React.useState('ontouchstart' in window);
+  const [orientation, ] = React.useState('orientation' in window);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <div>(any-hover:hover) : </div>
+        <div>{anyHover.matches ? 'true' : 'false'}</div>
+      </div>
+      <div>
+        <div>(hover:hover) : </div>
+        <div>{hover.matches ? 'true' : 'false'}</div>
+      </div>
+      <div>
+        <div>(pointer:coarse) : </div>
+        <div>{pointer.matches ? 'true' : 'false'}</div>
+      </div>
+      <div>
+        <div>(pointer:fine) : </div>
+        <div>{pointerFine.matches ? 'true' : 'false'}</div>
+      </div>
+      <div>
+        <div>maxTouchPoints : </div>
+        <div>{maxTouchPoints}</div>
+      </div>
+      <div>
+        <div>ontouchstart : </div>
+        <div>{onTouchStart ? 'true' : 'false'}</div>
+      </div>
     </div>
   );
 }
